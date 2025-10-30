@@ -91,26 +91,54 @@ const CheckoutPage: React.FC = () => {
 
   const total = useMemo(() => totalAfterDiscount + TAXES, [totalAfterDiscount]);
 
-  // promo logic: SAVE10 = 10% off subtotal; FLAT100 = ₹100 off
-  const applyPromo = () => {
+  // NEW: promo logic that checks backend
+  const applyPromo = async () => {
     setPromoError("");
-    const code = promoCode.trim().toUpperCase();
+    setPromoApplied(null);
+    setDiscountAmount(0);
+
+    const code = promoCode.trim();
     if (!code) {
       setPromoError("Enter a promo code");
       return;
     }
-    if (code === "SAVE10") {
-      const amount = Math.round((subtotal * 10) / 100);
-      setDiscountAmount(amount);
-      setPromoApplied(code);
+
+    try {
+      const url = `${
+        process.env.NEXT_PUBLIC_BACKEND_URL
+      }/api/promocode/${encodeURIComponent(code)}`;
+      const res = await axios.get(url);
+
+      // backend should return { valid: true, discountType, discountValue, message? }
+      const data = res.data;
+      if (!data || data.valid !== true) {
+        setPromoError(data?.message ?? "Invalid promo code");
+        return;
+      }
+
+      // compute discountAmount based on discountType
+      if (data.discountType === "percentage") {
+        const pct = Number(data.discountValue ?? 0);
+        const amount = Math.round((subtotal * pct) / 100);
+        setDiscountAmount(amount);
+      } else if (data.discountType === "flat") {
+        const flat = Number(data.discountValue ?? 0);
+        setDiscountAmount(Math.min(flat, subtotal));
+      } else {
+        setPromoError("Unsupported promo type");
+        return;
+      }
+
+      setPromoApplied(code.toUpperCase());
       setPromoError("");
-    } else if (code === "FLAT100") {
-      const amount = 100;
-      setDiscountAmount(Math.min(amount, subtotal));
-      setPromoApplied(code);
-      setPromoError("");
-    } else {
-      setPromoError("Invalid promo code");
+    } catch (err: any) {
+      // axios throws on 404 — handle it gracefully
+      if (err.response && err.response.status === 404) {
+        setPromoError("Invalid promo code");
+      } else {
+        console.error("Promo validation error:", err);
+        setPromoError("Failed to validate promo code. Try again.");
+      }
       setPromoApplied(null);
       setDiscountAmount(0);
     }
@@ -132,27 +160,31 @@ const CheckoutPage: React.FC = () => {
     );
   }, [experience, dateParam, timeParam, quantity, fullName, email, agree]);
 
-  const onConfirm = () => {
+  const onConfirm = async () => {
     if (!canPay) return;
     // build simple payload to pass to confirmation page
     const payload = {
-      exp: expId,
+      experienceId: expId,
+      userName: fullName,
+      userEmail: email,
       date: dateParam,
       time: timeParam,
-      qty: quantity,
-      name: fullName,
-      email,
-      promo: promoApplied ?? "",
-      discount: discountAmount,
+      quantity,
     };
 
-    // For now navigate to confirmation page with query params
-    const qp = new URLSearchParams();
-    Object.entries(payload).forEach(([k, v]) => {
-      qp.set(k, String(v));
-    });
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/bookings`,
+        payload
+      );
 
-    router.push(`/confirmation?${qp.toString()}`);
+      // booking response: { message, refId, totalAmount }
+      const { refId } = res.data;
+      router.push(`/confirmation?ref=${encodeURIComponent(refId)}`);
+    } catch (err) {
+      console.error("Booking error:", err);
+      alert("Failed to create booking. Please try again or change selection.");
+    }
   };
 
   if (loading) {
@@ -192,14 +224,6 @@ const CheckoutPage: React.FC = () => {
             ←
           </button>
           <h1 className="text-2xl font-semibold text-foreground">Checkout</h1>
-          <div className="ml-auto">
-            <button
-              onClick={() => router.back()}
-              className="py-1 px-3 rounded-md border text-sm"
-            >
-              Edit selection
-            </button>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

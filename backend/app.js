@@ -23,6 +23,9 @@ mongoose
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
 // Routes
+
+app.get("/ping", (req, res) => res.send("pong 🏓"));
+
 app.get("/api/experiences", async (req, res) => {
   try {
     console.log("Experiences");

@@ -26,6 +26,21 @@ const formatCurrency = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value);
 
+// New: format date string to "Oct 22" style.
+// Keeps original string as value so your slots lookup (by ISO/date key) still works.
+const formatDateShort = (dateString: string) => {
+  // Try to parse — if invalid, just return original string.
+  const d = new Date(dateString);
+  if (isNaN(d.getTime())) return dateString;
+  // en-US short month gives "Oct 22". Remove any accidental comma.
+  return d
+    .toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    })
+    .replace(",", "");
+};
+
 const ExperienceDetailPage: React.FC = () => {
   const { id } = useParams();
   const router = useRouter();
@@ -132,7 +147,7 @@ const ExperienceDetailPage: React.FC = () => {
                               : "bg-gray-100 text-gray-700 border-gray-300 hover:bg-gray-200"
                           }`}
                         >
-                          {date}
+                          {formatDateShort(date)}
                         </button>
                       ))}
                     </div>
@@ -242,7 +257,7 @@ const ExperienceDetailPage: React.FC = () => {
                   }}
                 >
                   {selectedDate && selectedTime
-                    ? "Confirm"
+                    ? "Confirm Booking"
                     : "Select date & time"}
                 </button>
               </div>

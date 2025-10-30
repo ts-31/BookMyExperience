@@ -248,12 +248,15 @@ const ExperienceDetailPage: React.FC = () => {
                   className="w-full bg-yellow-400 text-black py-2 rounded-md font-medium hover:opacity-90 transition disabled:opacity-60"
                   disabled={!selectedDate || !selectedTime}
                   onClick={() => {
-                    // TODO: implement confirm booking action
-                    console.log("Confirming booking", {
-                      selectedDate,
-                      selectedTime,
-                      quantity,
-                    });
+                    router.push(
+                      `/checkout?exp=${
+                        experience._id
+                      }&date=${encodeURIComponent(
+                        selectedDate
+                      )}&time=${encodeURIComponent(
+                        selectedTime
+                      )}&qty=${quantity}&price=${experience.price}`
+                    );
                   }}
                 >
                   {selectedDate && selectedTime

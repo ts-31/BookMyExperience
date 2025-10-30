@@ -1,0 +1,101 @@
+[
+  {
+    "id": 1,
+    "title": "Nandi Hills Sunrise Trek, Bangalore",
+    "description": "Experience the magical sunrise from Nandi Hills with a guided trek and breakfast.",
+    "about": "This guided trek includes a short hike, breakfast, and pickup options from Bangalore city center.",
+    "price": 999,
+    "image": "https://images.unsplash.com/photo-1617196036104-4b5e4f4b8d0e",
+    "availableDates": ["2025-11-01", "2025-11-02", "2025-11-03"],
+    "slots": {
+      "2025-11-01": [
+        { "time": "7:00 AM", "available": 4 },
+        { "time": "9:00 AM", "available": 2 },
+        { "time": "11:00 AM", "available": 5 }
+      ],
+      "2025-11-02": [
+        { "time": "7:00 AM", "available": 3 },
+        { "time": "9:00 AM", "available": 1 }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "title": "Boat Cruise on Ulsoor Lake, Bangalore",
+    "description": "Enjoy a calm evening boat cruise with light refreshments and live music.",
+    "about": "Perfect for couples or groups, includes refreshments, safety jackets, and a 1-hour guided cruise.",
+    "price": 1299,
+    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "availableDates": ["2025-11-05", "2025-11-06"],
+    "slots": {
+      "2025-11-05": [
+        { "time": "5:00 PM", "available": 6 },
+        { "time": "7:00 PM", "available": 0 }
+      ],
+      "2025-11-06": [{ "time": "5:00 PM", "available": 3 }]
+    }
+  },
+  {
+    "id": 3,
+    "title": "Coffee Trail Experience, Coorg",
+    "description": "Walk through coffee plantations and learn how your favorite brew is made.",
+    "about": "Includes plantation tour, roasting demo, and tasting session with local snacks.",
+    "price": 799,
+    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772",
+    "availableDates": ["2025-11-08", "2025-11-09"],
+    "slots": {
+      "2025-11-08": [
+        { "time": "9:00 AM", "available": 8 },
+        { "time": "11:00 AM", "available": 2 }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "title": "Desert Safari Adventure, Jaisalmer",
+    "description": "Ride through the golden dunes with a sunset camel safari and traditional Rajasthani dinner.",
+    "about": "Includes camel ride, jeep safari, cultural performance, buffet dinner, and campfire.",
+    "price": 2499,
+    "image": "https://images.unsplash.com/photo-1582719478170-2c0b2c0e8b9c",
+    "availableDates": ["2025-11-10", "2025-11-11", "2025-11-12"],
+    "slots": {
+      "2025-11-10": [
+        { "time": "4:00 PM", "available": 10 },
+        { "time": "6:00 PM", "available": 7 }
+      ],
+      "2025-11-11": [{ "time": "4:00 PM", "available": 4 }]
+    }
+  },
+  {
+    "id": 5,
+    "title": "Backwater Houseboat Stay, Alleppey",
+    "description": "Cruise through Kerala’s tranquil backwaters in a private luxury houseboat.",
+    "about": "Enjoy a 1-day stay with meals, local guide, and sunset views on Vembanad Lake.",
+    "price": 3999,
+    "image": "https://images.unsplash.com/photo-1590490357861-48c1d49e6d9b",
+    "availableDates": ["2025-11-14", "2025-11-15"],
+    "slots": {
+      "2025-11-14": [{ "time": "12:00 PM", "available": 2 }],
+      "2025-11-15": [{ "time": "12:00 PM", "available": 1 }]
+    }
+  },
+  {
+    "id": 6,
+    "title": "Paragliding at Bir Billing, Himachal Pradesh",
+    "description": "Soar high over the Himalayas with India’s most scenic paragliding experience.",
+    "about": "Tandem paragliding with certified pilots, safety gear, and optional GoPro recording.",
+    "price": 3499,
+    "image": "https://images.unsplash.com/photo-1518684079-5d7b2f7f6d91",
+    "availableDates": ["2025-11-18", "2025-11-19"],
+    "slots": {
+      "2025-11-18": [
+        { "time": "9:00 AM", "available": 5 },
+        { "time": "11:00 AM", "available": 3 }
+      ],
+      "2025-11-19": [
+        { "time": "9:00 AM", "available": 2 },
+        { "time": "11:00 AM", "available": 1 }
+      ]
+    }
+  }
+]

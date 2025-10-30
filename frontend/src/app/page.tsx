@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Loader from "../components/ui/Loader";
 
 type Slot = { time: string; available: number };
 type Experience = {
-  id: number;
+  _id: string;
   title: string;
   location: string;
   description: string;
@@ -17,33 +19,44 @@ type Experience = {
 
 const Page: React.FC = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await fetch("/data/experiences.json");
-        if (!res.ok) throw new Error("Failed to load experiences");
-        const data: Experience[] = await res.json();
-        setExperiences(data);
+        // Artificial delay (1.5 seconds)
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/experiences`
+        );
+        setExperiences(res.data);
       } catch (err) {
-        console.error(err);
+        console.error("Failed to load experiences:", err);
+      } finally {
+        setLoading(false);
       }
     };
     load();
   }, []);
 
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-background flex items-center justify-center">
+        <Loader />
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-background py-8">
-      {/* 1440px design width container */}
       <div className="max-w-[1440px] mx-auto px-[124px]">
-        {/* Grid for cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 justify-items-start">
           {experiences.map((exp) => (
             <article
-              key={exp.id}
+              key={exp._id}
               className="w-full max-w-[280px] h-[312px] bg-card rounded-md overflow-hidden shadow-sm"
             >
-              {/* Image */}
               <div className="w-full h-[170px]">
                 <img
                   src={exp.image}
@@ -53,9 +66,7 @@ const Page: React.FC = () => {
                 />
               </div>
 
-              {/* Card content */}
               <div className="h-[142px] py-3 px-4 flex flex-col gap-3">
-                {/* === Title + Location row === */}
                 <div className="flex justify-between items-center w-full px-1">
                   <h2 className="h-[20px] text-[16px] leading-[20px] font-semibold text-foreground">
                     {exp.title}
@@ -66,14 +77,11 @@ const Page: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Description */}
                 <p className="text-sm text-gray-500 leading-tight max-h-[68px] overflow-hidden">
                   {exp.description}
                 </p>
 
-                {/* Price + Button */}
                 <div className="flex items-center justify-between w-full mt-auto">
-                  {/* Price section */}
                   <div className="flex items-center gap-[6px]">
                     <span className="text-[12px] leading-[16px] font-normal text-foreground">
                       From
@@ -83,7 +91,6 @@ const Page: React.FC = () => {
                     </span>
                   </div>
 
-                  {/* Button */}
                   <button
                     type="button"
                     className="bg-yellow-400 text-black font-medium text-[14px] px-4 py-1 rounded-md hover:opacity-90 transition"

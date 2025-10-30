@@ -1,11 +1,12 @@
 [
   {
     "id": 1,
-    "title": "Nandi Hills Sunrise Trek, Bangalore",
+    "title": "Nandi Hills Sunrise Trek",
+    "location": "Bangalore, Karnataka",
     "description": "Experience the magical sunrise from Nandi Hills with a guided trek and breakfast.",
     "about": "This guided trek includes a short hike, breakfast, and pickup options from Bangalore city center.",
     "price": 999,
-    "image": "https://images.unsplash.com/photo-1617196036104-4b5e4f4b8d0e",
+    "image": "https://plus.unsplash.com/premium_photo-1690958955208-d5c5dd6a983b?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bmFuZGklMjBoaWxscyZUyQyUyMGluZGlhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=600",
     "availableDates": ["2025-11-01", "2025-11-02", "2025-11-03"],
     "slots": {
       "2025-11-01": [
@@ -21,11 +22,12 @@
   },
   {
     "id": 2,
-    "title": "Boat Cruise on Ulsoor Lake, Bangalore",
+    "title": "Boat Cruise on Ulsoor Lake",
+    "location": "Bangalore, Karnataka",
     "description": "Enjoy a calm evening boat cruise with light refreshments and live music.",
     "about": "Perfect for couples or groups, includes refreshments, safety jackets, and a 1-hour guided cruise.",
     "price": 1299,
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    "image": "https://images.unsplash.com/photo-1724742433321-d65f4e425065?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1205",
     "availableDates": ["2025-11-05", "2025-11-06"],
     "slots": {
       "2025-11-05": [
@@ -37,11 +39,12 @@
   },
   {
     "id": 3,
-    "title": "Coffee Trail Experience, Coorg",
+    "title": "Coffee Trail Experience",
+    "location": "Coorg, Karnataka",
     "description": "Walk through coffee plantations and learn how your favorite brew is made.",
     "about": "Includes plantation tour, roasting demo, and tasting session with local snacks.",
     "price": 799,
-    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772",
+    "image": "https://plus.unsplash.com/premium_photo-1683133250018-dd82351d43bf?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
     "availableDates": ["2025-11-08", "2025-11-09"],
     "slots": {
       "2025-11-08": [
@@ -52,11 +55,12 @@
   },
   {
     "id": 4,
-    "title": "Desert Safari Adventure, Jaisalmer",
+    "title": "Desert Safari Adventure",
+    "location": "Jaisalmer, Rajasthan",
     "description": "Ride through the golden dunes with a sunset camel safari and traditional Rajasthani dinner.",
     "about": "Includes camel ride, jeep safari, cultural performance, buffet dinner, and campfire.",
     "price": 2499,
-    "image": "https://images.unsplash.com/photo-1582719478170-2c0b2c0e8b9c",
+    "image": "https://plus.unsplash.com/premium_photo-1661962428918-6a57ab674e23?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070",
     "availableDates": ["2025-11-10", "2025-11-11", "2025-11-12"],
     "slots": {
       "2025-11-10": [
@@ -68,11 +72,12 @@
   },
   {
     "id": 5,
-    "title": "Backwater Houseboat Stay, Alleppey",
+    "title": "Backwater Houseboat Stay",
+    "location": "Alleppey, Kerala",
     "description": "Cruise through Kerala’s tranquil backwaters in a private luxury houseboat.",
     "about": "Enjoy a 1-day stay with meals, local guide, and sunset views on Vembanad Lake.",
     "price": 3999,
-    "image": "https://images.unsplash.com/photo-1590490357861-48c1d49e6d9b",
+    "image": "https://plus.unsplash.com/premium_photo-1697729438401-fcb4ff66d9a8?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
     "availableDates": ["2025-11-14", "2025-11-15"],
     "slots": {
       "2025-11-14": [{ "time": "12:00 PM", "available": 2 }],
@@ -81,11 +86,12 @@
   },
   {
     "id": 6,
-    "title": "Paragliding at Bir Billing, Himachal Pradesh",
+    "title": "Paragliding Experience",
+    "location": "Bir Billing, Himachal Pradesh",
     "description": "Soar high over the Himalayas with India’s most scenic paragliding experience.",
     "about": "Tandem paragliding with certified pilots, safety gear, and optional GoPro recording.",
     "price": 3499,
-    "image": "https://images.unsplash.com/photo-1518684079-5d7b2f7f6d91",
+    "image": "https://plus.unsplash.com/premium_photo-1663054309676-bb9d31c56f72?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
     "availableDates": ["2025-11-18", "2025-11-19"],
     "slots": {
       "2025-11-18": [

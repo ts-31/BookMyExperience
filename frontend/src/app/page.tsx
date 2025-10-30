@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../components/ui/Loader";
+import { useRouter } from "next/navigation";
 
 type Slot = { time: string; available: number };
 type Experience = {
@@ -20,13 +21,12 @@ type Experience = {
 const Page: React.FC = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const load = async () => {
       try {
-        // Artificial delay (1.5 seconds)
         await new Promise((resolve) => setTimeout(resolve, 1500));
-
         const res = await axios.get(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/experiences`
         );
@@ -93,6 +93,7 @@ const Page: React.FC = () => {
 
                   <button
                     type="button"
+                    onClick={() => router.push(`/experience/${exp._id}`)}
                     className="bg-yellow-400 text-black font-medium text-[14px] px-4 py-1 rounded-md hover:opacity-90 transition"
                   >
                     View Details

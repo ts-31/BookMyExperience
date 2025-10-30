@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         background: "var(--background)",
         surface: "var(--surface)",
+        card: "var(--card)",
+        "button-muted": "var(--button-muted)",
 
         primary: "var(--primary)",
 

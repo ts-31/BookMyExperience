@@ -3,6 +3,8 @@
 :root {
   --background: #f9f9f9;
   --surface: #ededed;
+  --card: #f0f0f0;     
+  --button-muted: #d6d6d6;  
 
   --primary: #ffd643;
 
@@ -14,6 +16,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-button-muted: var(--button-muted);
 
   --color-primary: var(--primary);
 

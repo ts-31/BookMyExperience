@@ -1,6 +1,7 @@
+// File: /checkout/page.tsx
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import axios from "axios";
 import Loader from "@/components/ui/Loader";
@@ -28,7 +29,13 @@ type Experience = {
 
 const TAXES = 59;
 
-const CheckoutPage: React.FC = () => {
+/*
+  NOTE:
+  - CheckoutContent uses useSearchParams() (client hook).
+  - We wrap CheckoutContent in Suspense below to satisfy Next.js prerender rules.
+*/
+
+const CheckoutContent: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -363,6 +370,20 @@ const CheckoutPage: React.FC = () => {
         </div>
       </div>
     </main>
+  );
+};
+
+const CheckoutPage: React.FC = () => {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-background flex items-center justify-center">
+          <Loader />
+        </main>
+      }
+    >
+      <CheckoutContent />
+    </Suspense>
   );
 };
 

@@ -1,6 +1,6 @@
 // api/index.js
-import app from "../backend/app.js";
-import { connectDB } from "../backend/db.js";
+import app from "../app.js";
+import { connectDB } from "../db.js";
 
 let dbReady = false;
 app.use(async (req, res, next) => {

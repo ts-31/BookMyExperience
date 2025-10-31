@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
       {/* Logo */}
       <div className="w-[100px] h-[55px] flex items-center">
         <img
-          src="/next.svg"
+          src="/logo.svg"
           alt="BookMyExperience Logo"
           className="w-full h-auto object-contain"
         />

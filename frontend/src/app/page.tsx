@@ -32,7 +32,7 @@ const Page: React.FC = () => {
         );
         setExperiences(res.data);
       } catch (err) {
-        console.error("Failed to load experiences:", err);
+        // console.error("Failed to load experiences:", err);
       } finally {
         setLoading(false);
       }

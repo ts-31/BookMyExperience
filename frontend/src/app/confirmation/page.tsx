@@ -1,10 +1,12 @@
+// File: frontend/src/app/confirmation/page.tsx
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Check } from "lucide-react";
+import Loader from "@/components/ui/Loader";
 
-const ConfirmationPage: React.FC = () => {
+const ConfirmationContent: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const refId = searchParams?.get("ref") ?? null;
@@ -46,6 +48,20 @@ const ConfirmationPage: React.FC = () => {
         Back to Home
       </button>
     </div>
+  );
+};
+
+const ConfirmationPage: React.FC = () => {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-background flex items-center justify-center">
+          <Loader />
+        </main>
+      }
+    >
+      <ConfirmationContent />
+    </Suspense>
   );
 };
 

@@ -1,4 +1,4 @@
-# BookIt: Experiences & Slots
+# BookMyExperience: Experiences & Slots
 
 A fullstack React/Node app for browsing and booking travel experiences with dynamic slots, promo codes, and responsive UI matching [Figma](https://www.figma.com/design/8X6E1Ev8YdtZ3erV0Iifvb/HD-booking?node-id=0-1&p=f&t=K4scwnxfIHmfbb2a-0).
 
@@ -42,7 +42,7 @@ VITE_API_URL=http://localhost:5000
 ## Deployment
 - Frontend: Vercel
 - Backend: Render
-- Live: [Frontend]() | [Backend](https://book-my-experience.vercel.app/)
+- Live: [Frontend](https://book-my-experience-vtu8.vercel.app/) | [Backend](https://book-my-experience.vercel.app/)
 - Repo: [GitHub](https://github.com/ts-31/BookMyExperience)
 
 ## License
